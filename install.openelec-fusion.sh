@@ -1,9 +1,9 @@
 #!/bin/bash
 
-URL=http://releases.openelec.tv/OpenELEC-Fusion.x86_64-3.2.0.tar.bz2
+URL=http://www.openelec.tv/get-openelec/download/finish/4-fusion-builds/235-openelec-stable-fusion-x86-64
 
-wget -q ${URL} -P /tmp/
-tar xjf /tmp/${URL##*/} -C /tmp/
+wget -q ${URL} -O /tmp/OpenELEC-Fusion.x86_64.tar
+tar xf /tmp/OpenELEC-Fusion.x86_64.tar -C /tmp/
 
 cp /tmp/OpenELEC*/target/KERNEL /var/lib/tftpboot/openelec/KERNEL
 cp /tmp/OpenELEC*/target/SYSTEM /media/openelec/
