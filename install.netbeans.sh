@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # download link
-URL=http://download.netbeans.org/netbeans/7.3.1/final/bundles/netbeans-7.3.1-javase-linux.sh
+URL=http://download.netbeans.org/netbeans/7.4/final/bundles/netbeans-7.4-javase-linux.sh
 
 # install Java JDK
 wget http://installit.googlecode.com/hg/install.java-jdk.sh -O - | bash -
