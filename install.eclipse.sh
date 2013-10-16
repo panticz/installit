@@ -3,10 +3,10 @@
 # download link
 if [ "$(uname -m)" == "x86_64" ]; then
   # 64 bit
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/kepler/R/eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz
+  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/kepler/SR1/eclipse-jee-kepler-SR1-linux-gtk-x86_64.tar.gz
 else
   # 32 bit
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/kepler/R/eclipse-jee-kepler-R-linux-gtk.tar.gz
+  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/kepler/SR1/eclipse-jee-kepler-SR1-linux-gtk.tar.gz
 fi
 
 # install Java JDK
