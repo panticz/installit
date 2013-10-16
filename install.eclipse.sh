@@ -10,7 +10,7 @@ else
 fi
 
 # install Java JDK
-wget http://installit.googlecode.com/hg/install.java-jdk.sh -O - | bash -
+wget https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # download new eclipse release
 wget ${URL} -P /tmp
