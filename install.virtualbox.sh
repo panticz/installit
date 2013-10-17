@@ -22,7 +22,7 @@ EOF
 sudo apt-get update -qq
 
 # install
-sudo apt-get install -y virtualbox-4.2
+sudo apt-get install -y virtualbox-4.3
 
 # add current user to vboxusers group
 sudo adduser ${USER} vboxusers
