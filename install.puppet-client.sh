@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO:
-# rename to install.puppet-client.sh
-
 # install
 apt-get install -qq -y puppet
  
