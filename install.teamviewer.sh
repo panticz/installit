@@ -19,6 +19,3 @@ sudo dpkg -i /tmp/teamviewer_linux*.deb
 
 # clean up
 rm /tmp/teamviewer_linux*.deb
-
-# remove teamviewer autostart service at login
-sudo teamviewer --daemon disable
