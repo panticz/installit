@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=http://www.openelec.tv/get-openelec/download/finish/4-fusion-builds/235-openelec-stable-fusion-x86-64
+URL=http://www.openelec.tv/get-openelec/download/finish/4-fusion-builds/244-openelec-stable-fusion-x86-64
 
 wget -q ${URL} -O /tmp/OpenELEC-Fusion.x86_64.tar
 tar xf /tmp/OpenELEC-Fusion.x86_64.tar -C /tmp/
