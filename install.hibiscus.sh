@@ -6,10 +6,10 @@ wget https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | 
 # download Jameica
 if [ "$(uname -m)" == "x86_64" ]; then
   # 64 bit
-  URL=http://www.willuhn.de/products/jameica/releases/current/jameica/jameica-linux.zip
+  URL=http://www.willuhn.de/products/jameica/releases/current/jameica/jameica-linux64.zip
 else
   # 32 bit
-  URL=http://www.willuhn.de/products/jameica/releases/current/jameica/jameica-linux64.zip
+  URL=http://www.willuhn.de/products/jameica/releases/current/jameica/jameica-linux.zip
 fi
 wget ${URL} -P /tmp
 
