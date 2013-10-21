@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # configure locale
-wget -q http://www.panticz.de/sites/default/files/scripts/configure_locale.sh -O - | bash -
+wget -q http://dl.panticz.de/scripts/configure_locale.sh -O - | bash -
 
 # update repository
 apt-get update
