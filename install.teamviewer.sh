@@ -12,7 +12,7 @@ else
 fi
 
 # download
-wget ${URL} -P /tmp
+wget -q ${URL} -P /tmp
 
 # install
 sudo dpkg -i /tmp/teamviewer_linux*.deb
