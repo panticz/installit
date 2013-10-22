@@ -11,11 +11,11 @@ FILE=${URL##*/}
 [ -n "$2" ] && USER=$2
 
 # install Java JRE
-wget https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+wget -q https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # get file
 if [ ${URL:0:4} == "http" ]; then
-  wget ${URL} -O /tmp/${FILE}
+  wget -q ${URL} -O /tmp/${FILE}
 else
   cp ${URL} /tmp/${FILE}
 fi
