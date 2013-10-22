@@ -1,4 +1,4 @@
 installit
 =========
 
-Scripts to install automatic applications under Ubuntu
+Scripts to automatic install applications under Ubuntu / Debian Linux
