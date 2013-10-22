@@ -15,7 +15,7 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update -qq
 
 # install
-sudo apt-get install -y oracle-java7-installer
+sudo apt-get -o Acquire::http:Proxy=DIRECT install -y oracle-java7-installer
 
 # set java 7 as default java version
 sudo update-java-alternatives -s java-7-oracle
