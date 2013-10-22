@@ -10,10 +10,10 @@ else
 fi
 
 # install Java JDK
-wget https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+wget -q https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # download new eclipse release
-wget ${URL} -P /tmp
+wget -q ${URL} -P /tmp
 
 # backup old release
 [ -d /usr/lib/eclipse/ ] && sudo mv /usr/lib/eclipse/ /usr/lib/eclipse.$(date -I)
