@@ -17,7 +17,7 @@ bash /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.install --noexec --keep --nox11 --tar
 
 # fix pips-common package
 RELEASE=$(lsb_release -rs | tr -d ".")
-if [ ${RELEASE} -lt 1004 ]; then
+if [ ${RELEASE} -gt 1004 ]; then
   DEBDIR=/tmp/release/deb
   [ -d ${DEBDIR}/ ] && rm -r ${DEBDIR}/
   mkdir ${DEBDIR}/
