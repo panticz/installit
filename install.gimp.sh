@@ -7,7 +7,7 @@ if [ ${RELEASE} -ge 1204 ]; then
 fi
 
 # update
-sudo apt-get update
+sudo apt-get update -qq
 
 # install gimp
 sudo apt-get install -y gimp
