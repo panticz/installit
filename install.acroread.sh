@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # create debconf answer file
-debconf-set-selections <<\EOF
+sudo debconf-set-selections <<\EOF
 acroread acroread/default-viewer boolean false
 EOF
 
