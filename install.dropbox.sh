@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # add repository
-apt-add-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main"
+sudo apt-add-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -cs) main"
 
 # update repository
 sudo apt-get update -qq
