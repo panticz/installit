@@ -3,7 +3,7 @@
 # install required libs
 RELEASE=$(lsb_release -rs | tr -d ".")
 if [ ${RELEASE} -ge 1310 ]; then
-  sudo apt-get install -y libxtst6
+  sudo apt-get install -y libxtst6:i386
 else
   sudo apt-get install -y libc6-i386 lib32asound2 lib32z1 ia32-libs
 fi
