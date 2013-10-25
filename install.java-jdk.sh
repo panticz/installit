@@ -14,7 +14,7 @@ sudo add-apt-repository -y ppa:webupd8team/java
 # update repository
 sudo apt-get update -qq
 
-# WORKAROUND: disable apt proyx
+# WORKAROUND: disable apt proxy
 sudo sed -i 's|Acquire::http::Proxy|#DISABLED#Acquire::http::Proxy|g' /etc/apt/apt.conf
 
 # install
