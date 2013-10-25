@@ -4,7 +4,7 @@
 sudo sed -i "s/# \(deb .* universe\)/\1/" /etc/apt/sources.list
 
 # install libs
-sudo apt-get install -y libxml2
+sudo apt-get install -y libxml2:i386
 
 # download driver package
 if [ ! -f /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.tgz ]; then
