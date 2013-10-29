@@ -10,6 +10,7 @@ sudo apt-get install -y libcairo2:i386
 sudo apt-get install -y libcupsimage2:i386
 sudo apt-get install -y libgtk2.0-0:i386
 sudo apt-get install -y libpango1.0-0:i386
+sudo apt-get install -y libstdc++6:i386
 
 # download driver package
 if [ ! -f /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.tgz ]; then
