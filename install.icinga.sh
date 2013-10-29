@@ -7,6 +7,8 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 debconf-set-selections <<\EOF
+postfix postfix/mailname string icinga
+postfix postfix/main_mailer_type select Internet Site
 icinga-common icinga/check_external_commands select false
 icinga-cgi icinga/adminpassword-repeat string t00r
 icinga-cgi icinga/adminpassword string t00r
