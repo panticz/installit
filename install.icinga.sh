@@ -1,6 +1,12 @@
 #!/bin/bash
 
-sudo debconf-set-selections <<\EOF
+# ensure that this script is run by root
+if [ $(id -u) -ne 0 ]; then
+  sudo $@
+  exit
+fi
+
+debconf-set-selections <<\EOF
 icinga-common icinga/check_external_commands select false
 icinga-cgi icinga/adminpassword-repeat string t00r
 icinga-cgi icinga/adminpassword string t00r
