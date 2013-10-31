@@ -37,7 +37,10 @@ fi
 sudo dpkg -i --force-architecture /tmp/release/pips-common_3.2.0-3_i386.deb
 sudo dpkg -i --force-architecture /tmp/release/pips-ubuntu10.04_3.2.0-3_i386.deb
 sudo dpkg -i --force-architecture /tmp/release/pips-pxb500_3.2.0-3_i386.deb
- 
+
+# set owner
+sudo chown root:root /usr/lib/cups/filter/pips-wrapper
+
 # create network printer when IP specified
 if [ -n "${1}" ]; then
     sudo lpadmin -p Epson_B-500DN -v socket://${1}:2501 -E -P /usr/share/cups/model/ekpxb500.ppd
