@@ -8,4 +8,4 @@ sudo apt-add-repository -y ppa:mqchael/pipelight
 sudo apt-get update
 
 # install pipelight
-sudo apt-get install pipelight
+sudo apt-get install -y pipelight
