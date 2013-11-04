@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$1" == "-n" ]; then
+  sudo add-apt-repository -y ppa:videolan/stable-daily
+  sudo apt-get update
+fi
+
 sudo apt-get install -y vlc
 sudo apt-get install -y vlc-plugin-pulse
 sudo apt-get install -y mozilla-plugin-vlc
