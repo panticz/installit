@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# configure locale
-wget -q http://dl.panticz.de/scripts/configure_locale.sh -O - | bash -
-
-# update repository
-apt-get update
- 
 # install debian xen kernel
 apt-get install -y xen-linux-system xen-tools debootstrap
  
