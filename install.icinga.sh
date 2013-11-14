@@ -15,10 +15,13 @@ icinga-cgi icinga/adminpassword string t00r
 icinga-cgi icinga/httpd select apache2
 EOF
 
-# add debmon icinga repository
-#wget http://debmon.org/debmon/repo.key -O - | apt-key add -
-#echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list
-#apt-get update
+# install the latest version 
+if [ "$1" == "-n" ]; then
+  # add debmon.org Icinga repository
+  echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon.list
+  wget -q http://debmon.org/debmon/repo.key -O - | apt-key add -
+  apt-get update
+fi
 
 # install icinga
 apt-get install -y icinga
