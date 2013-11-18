@@ -43,5 +43,5 @@ sudo chown root:root /usr/lib/cups/filter/pips-wrapper
 
 # create network printer when IP specified
 if [ -n "${1}" ]; then
-    sudo lpadmin -p Epson_B-500DN -v socket://${1}:2501 -E -P /usr/share/cups/model/ekpxb500.ppd
+    sudo lpadmin -p Epson_B-310N -v socket://${1}:2501 -E -P /usr/share/cups/model/ekpxb310.ppd
 fi
