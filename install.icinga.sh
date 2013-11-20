@@ -34,5 +34,25 @@ fi
 # disable double log output to syslog
 sed -i 's|use_syslog=1|use_syslog=0|g' /etc/icinga/icinga.cfg
 
+# redirect to icinga if standalone webserver
+if [ $(head -1 /var/www/index.html | grep -c 'It works!') -eq 1 ]; then
+mv /var/www/index.html /var/www/index.html.$(date -I)
+cat <<EOF> /var/www/index.html
+<html>
+<head>
+<script type="text/javascript">
+<!--
+window.location = "/icinga/"
+//-->
+</script>
+</head>
+<body>
+<a href="/icinga/">Icinga</a>
+</body>
+</html>
+EOF
+fi
+
+
 # restart icinga
 /etc/init.d/icinga restart
