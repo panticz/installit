@@ -17,4 +17,4 @@ if [ "$1" == "-n" ]; then
 fi
 
 # auto configure
-yes| /usr/sbin/sensors-detect
+yes | /usr/sbin/sensors-detect
