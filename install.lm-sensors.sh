@@ -15,3 +15,6 @@ if [ "$1" == "-n" ]; then
   dpkg -i /tmp/lm-sensors_*.deb
   rm /tmp/lm-sensors_*.deb
 fi
+
+# auto configure
+yes| /usr/sbin/sensors-detect
