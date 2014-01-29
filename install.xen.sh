@@ -4,8 +4,11 @@
 apt-get install -y xen-linux-system xen-tools debootstrap
  
 # OPTINAL: install qemu for HVM guests
-apt-get install -y xen-qemu-dm-4.0
- 
+. /etc/os-release
+if [ ${VERSION_ID} -lt 7 ]; then
+   apt-get install -y xen-qemu-dm-4.0
+fi
+
 # configure grub to start xen kernel
 mv /etc/grub.d/10_linux /etc/grub.d/25_linux
 echo "GRUB_DISABLE_OS_PROBER=true" >> /etc/default/grub
