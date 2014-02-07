@@ -38,7 +38,7 @@ if [[ "$(uname -r)" == *3.2.0* ]]; then
 fi
 
 # FIX for first generatio Athlon / Opteron AMD CPUs
-if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) == *Athlon*64*Processor* ]]; then
+if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) =~ AMD.*(Athlon.*64.*Processor|Opteron.*185) ]]; then
    echo GRUB_CMDLINE_XEN=allow_unsafe >> /etc/default/grub
    update-grub
 fi
