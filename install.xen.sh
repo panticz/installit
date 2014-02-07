@@ -36,3 +36,9 @@ sed -i '$ i\xm sched-credit -d Domain-0 -w 512' /etc/rc.local
 if [[ "$(uname -r)" == *3.2.0* ]]; then
    echo "blacklist powernow_k8" > /etc/modprobe.d/xen-blacklist.conf
 fi
+
+# FIX for first generatio Athlon / Opteron AMD CPUs
+if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) == *Athlon*64*Processor* ]]; then
+   echo GRUB_CMDLINE_XEN=allow_unsafe >> /etc/default/grub
+   update-grub
+fi
