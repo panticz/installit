@@ -10,7 +10,7 @@ if [ ${VERSION_ID} -lt 7 ]; then
 fi
 
 # configure grub to start xen kernel
-mv /etc/grub.d/10_linux /etc/grub.d/25_linux
+mv /etc/grub.d/20_linux_xen /etc/grub.d/09_linux_xen
 echo "GRUB_DISABLE_OS_PROBER=true" >> /etc/default/grub
 update-grub
  
