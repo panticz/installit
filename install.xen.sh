@@ -15,9 +15,13 @@ if [ $(grep -c GRUB_DISABLE_OS_PROBER /etc/default/grub) -eq 0 ]; then
     echo "GRUB_DISABLE_OS_PROBER=true" >> /etc/default/grub
 fi
 update-grub
- 
+
+
 # OPTIONAL: configure memory for dom0
-echo GRUB_CMDLINE_XEN="dom0_mem=512M" >> /etc/default/grub
+if [ $(grep -c GRUB_CMDLINE_XEN /etc/default/grub) -eq 0 ]; then
+    echo GRUB_CMDLINE_XEN=\"\" >> /etc/default/grub
+fi
+sed -i 's|GRUB_CMDLINE_XEN="|GRUB_CMDLINE_XEN="dom0_mem=512M |g' /etc/default/grub
 sed -i 's|(enable-dom0-ballooning yes)|(enable-dom0-ballooning no)|g' /etc/xen/xend-config.sxp
 update-grub
  
@@ -41,6 +45,6 @@ fi
 
 # FIX for first generatio Athlon / Opteron AMD CPUs
 if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) =~ AMD.*(Athlon.*64.*Processor|Opteron.*185) ]]; then
-   echo GRUB_CMDLINE_XEN=allow_unsafe >> /etc/default/grub
+   sed -i 's|GRUB_CMDLINE_XEN="|GRUB_CMDLINE_XEN="allow_unsafe |g' /etc/default/grub
    update-grub
 fi
