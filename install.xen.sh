@@ -48,3 +48,6 @@ if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) =~ AMD.*(Athlon.*
    sed -i 's|GRUB_CMDLINE_XEN="|GRUB_CMDLINE_XEN="allow_unsafe |g' /etc/default/grub
    update-grub
 fi
+
+# clean up blanks
+sed -i 's| "|"|g' /etc/default/grub
