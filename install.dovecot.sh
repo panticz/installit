@@ -10,7 +10,7 @@ fi
 apt-get install -y dovecot-imapd
 
 # enable secure imap only (Port 993)
-sed -i 's|^protocols = imap imaps|protocols = imaps|g' /etc/dovecot/dovecot.conf
+echo "protocols = imaps" > /usr/share/dovecot/protocols.d/imapd.protocol
 
 # configure mailbox path
 sed -i 's|mbox:~/mail:INBOX=/var/mail/%u|maildir:~/Maildir|g' /etc/dovecot/conf.d/10-mail.conf
