@@ -11,7 +11,9 @@ fi
 
 # configure grub to start xen kernel
 mv /etc/grub.d/20_linux_xen /etc/grub.d/09_linux_xen
-echo "GRUB_DISABLE_OS_PROBER=true" >> /etc/default/grub
+if [ $(grep -c GRUB_DISABLE_OS_PROBER /etc/default/grub) -eq 0 ]; then
+    echo "GRUB_DISABLE_OS_PROBER=true" >> /etc/default/grub
+fi
 update-grub
  
 # OPTIONAL: configure memory for dom0
