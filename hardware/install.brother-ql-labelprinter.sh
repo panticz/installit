@@ -26,11 +26,11 @@ EOF
 
 mkdir -p /var/spool/lpd/ql570
 
-wget http://pub.brother.com/pub/com/bsc/linux/dlf/ql570lpr-1.0.0-1.i386.deb -P /tmp
-dpkg -i --force-all /tmp/ql570lpr-1.0.0-1.i386.deb
+wget http://www.brother.com/pub/bsc/linux/dlf/ql570lpr-1.0.1-0.i386.deb -P /tmp
+dpkg -i --force-all /tmp/ql570lpr-*.i386.deb
 
-wget http://pub.brother.com/pub/com/bsc/linux/dlf/ql570cupswrapper-1.0.0-1.debian.i386.deb -P /tmp
-dpkg -i --force-all /tmp/ql570cupswrapper-1.0.0-1.debian.i386.deb
+wget http://www.brother.com/pub/bsc/linux/dlf/ql570cupswrapper-1.0.1-0.i386.deb -P /tmp
+dpkg -i --force-all /tmp/ql570cupswrapper-*.i386.deb
 
 # connect and power-on the printer
 
