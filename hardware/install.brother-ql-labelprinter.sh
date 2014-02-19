@@ -38,4 +38,4 @@ dpkg -i --force-all /tmp/ql570cupswrapper-*.i386.deb
 lpadmin -x QL-570
 
 # create new printer (example for QL-500)
-lpadmin -p Brother_P-Touch -E -v usb://Brother/QL-500 -P /usr/share/cups/model/brql570.ppd
+lpadmin -p Brother_P-Touch -E -v usb://Brother/QL-500 -P /usr/share/cups/model/Brother/brother_ql570_printer_en.ppd
