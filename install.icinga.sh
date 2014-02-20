@@ -34,6 +34,9 @@ fi
 # disable double log output to syslog
 sed -i 's|use_syslog=1|use_syslog=0|g' /etc/icinga/icinga.cfg
 
+# show 1000 results by default
+sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
+
 # redirect to icinga if standalone webserver
 if [ $(head -1 /var/www/index.html | grep -c 'It works!') -eq 1 ]; then
 mv /var/www/index.html /var/www/index.html.$(date -I)
@@ -52,7 +55,6 @@ window.location = "/icinga/"
 </html>
 EOF
 fi
-
 
 # restart icinga
 /etc/init.d/icinga restart
