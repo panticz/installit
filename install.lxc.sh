@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# update repository
-apt-get update
-
-debconf-set-selections <<\EOF
-lxc lxc/directory string /var/lib/lxc
-EOF
-
 # install lxc
 apt-get install -y lxc
 
@@ -23,5 +16,3 @@ EOF
 
 # disable auto configuration for network bridge by lxc
 sed -i 's|USE_LXC_BRIDGE="true"|USE_LXC_BRIDGE="false"|g' /etc/default/lxc-net
-#sed -i 's|lxc.network.link = lxcbr0|lxc.network.link = br0|g' /etc/lxc/default.conf
-
