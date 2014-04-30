@@ -1,5 +1,15 @@
 #!/bin/bash
 
+function fix_libxml2() {
+   DEBDIR=/tmp/release/deb
+   [ -d ${DEBDIR}/ ] && rm -r ${DEBDIR}/
+   mkdir ${DEBDIR}/
+   dpkg-deb -x /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/
+   dpkg-deb --control /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/DEBIAN
+   sed -i 's|libxml2 (>= 2.7.4), ||g' ${DEBDIR}/DEBIAN/control
+   dpkg -b ${DEBDIR}/ /tmp/release/pips-common_3.2.0-3_i386.deb
+}
+
 # enable universe repository
 sudo sed -i "s/# \(deb .* universe\)/\1/" /etc/apt/sources.list
 
@@ -24,13 +34,7 @@ bash /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.install --noexec --keep --nox11 --tar
 # fix pips-common package
 RELEASE=$(lsb_release -rs | tr -d ".")
 if [ ${RELEASE} -gt 1004 ]; then
-  DEBDIR=/tmp/release/deb
-  [ -d ${DEBDIR}/ ] && rm -r ${DEBDIR}/
-  mkdir ${DEBDIR}/
-  dpkg-deb -x /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/
-  dpkg-deb --control /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/DEBIAN
-  sed -i 's|libxml2 (>= 2.7.4), ||g' ${DEBDIR}/DEBIAN/control
-  dpkg -b ${DEBDIR}/ /tmp/release/pips-common_3.2.0-3_i386.deb
+   fix_libxml2
 fi
 
 # install driver
