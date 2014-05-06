@@ -26,6 +26,9 @@ sudo sed -i 's|Acquire::http::Proxy|#DISABLED#Acquire::http::Proxy|g' /etc/apt/a
 # install
 sudo apt-get -o Acquire::http:Proxy=DIRECT install -y oracle-java8-installer
 
+# set Java environment variables
+sudo apt-get install -y oracle-java8-set-default
+
 # WORKAROUND: enable apt proxy
 sudo sed -i 's|#DISABLED#Acquire::http::Proxy|Acquire::http::Proxy|g' /etc/apt/apt.conf
 
