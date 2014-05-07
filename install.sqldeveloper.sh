@@ -24,7 +24,6 @@ fi
 [ -d /opt ] || sudo mkdir /opt
 sudo unzip /tmp/${FILE} -d /opt/
 sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
-rm /tmp/sqldeveloper-*-no-jre.zip
 
 # create startet
 cat << EOF | sudo tee -a "/usr/share/applications/Oracle SQL Developer.desktop"
