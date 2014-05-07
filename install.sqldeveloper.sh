@@ -11,7 +11,7 @@ FILE=${URL##*/}
 [ -n "$2" ] && USER=$2
 
 # install Java JRE
-wget -q https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # get file
 if [ ${URL:0:4} == "http" ]; then
