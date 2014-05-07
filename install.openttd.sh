@@ -2,8 +2,8 @@
 
 if [ "$1" == "-n" ]; then
   # install latest version from homepage
-  wget http://binaries.openttd.org/releases/1.3.2/openttd-1.3.2-linux-ubuntu-precise-amd64.deb -P /tmp
-  sudo dpkg -i /tmp/openttd-1.3.2-linux-ubuntu-precise-amd64.deb
+  wget http://binaries.openttd.org/releases/1.4.0/openttd-1.4.0-linux-ubuntu-trusty-amd64.deb -P /tmp
+  sudo dpkg -i /tmp/openttd-*-linux-ubuntu-*.deb
 else
   # installed version provided by the distribution
   sudo apt-get install -y openttd
