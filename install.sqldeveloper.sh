@@ -21,8 +21,9 @@ else
 fi
 
 # extract
-sudo unzip /tmp/${FILE} -d /usr/share/
-sudo chmod +x /usr/share/sqldeveloper/sqldeveloper.sh
+[ -d /opt ] || sudo mkdir /opt
+sudo unzip /tmp/${FILE} -d /opt/
+sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
 rm /tmp/sqldeveloper-*-no-jre.zip
 
 # create startet
@@ -33,8 +34,8 @@ Encoding=UTF-8
 Name=Oracle SQL Developer
 Type=Application
 Terminal=false
-Exec=/usr/share/sqldeveloper/sqldeveloper.sh
-Icon=/usr/share/sqldeveloper/icon.png
+Exec=/opt/sqldeveloper/sqldeveloper.sh
+Icon=/opt/sqldeveloper/icon.png
 Categories=Application;Development;
 EOF
 
