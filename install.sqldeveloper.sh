@@ -29,7 +29,7 @@ rpm)
   ;;
 deb)
   # install debian package
-  dpkg -i ${FILE}
+  sudo dpkg -i ${FILE}
   ;;
 zip)
   # extract
