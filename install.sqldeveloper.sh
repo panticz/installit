@@ -25,6 +25,9 @@ fi
 sudo unzip /tmp/${FILE} -d /opt/
 sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
 
+# fix "Error: SQL Developer can't recognize the JDK version" error
+sudo sed -i '1 aunset GNOME_DESKTOP_SESSION_ID' /opt/sqldeveloper/sqldeveloper.sh
+
 # create startet
 cat << EOF | sudo tee -a "/usr/share/applications/Oracle SQL Developer.desktop"
 [Desktop Entry]
