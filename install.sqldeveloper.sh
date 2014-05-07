@@ -20,10 +20,28 @@ else
   cp ${URL} /tmp/${FILE}
 fi
 
-# extract
-[ -d /opt ] || sudo mkdir /opt
-sudo unzip /tmp/${FILE} -d /opt/
-sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
+case ${FILE: -3} in
+rpm)
+  # convert rpm package to debian
+  sudo apt-get install -y alien
+  sudo alien ${FILE}
+  sudo dpkg -i ${FILE/.rpm/.deb}
+  ;;
+deb)
+  # install debian package
+  dpkg -i ${FILE}
+  ;;
+zip)
+  # extract
+  [ -d /opt ] || sudo mkdir /opt
+  sudo unzip /tmp/${FILE} -d /opt/
+  sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
+  ;;
+*)
+  echo "Unknown file format"
+  exit
+  ;;
+esac
 
 # fix "Error: SQL Developer can't recognize the JDK version" error
 sudo sed -i '1 aunset GNOME_DESKTOP_SESSION_ID' /opt/sqldeveloper/sqldeveloper.sh
