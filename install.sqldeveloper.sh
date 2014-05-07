@@ -24,12 +24,12 @@ case ${FILE: -3} in
 rpm)
   # convert rpm package to debian
   sudo apt-get install -y alien
-  sudo alien ${FILE}
-  sudo dpkg -i ${FILE/.rpm/.deb}
+  sudo alien /tmp/${FILE}
+  sudo dpkg -i /tmp/${FILE/.rpm/.deb}
   ;;
 deb)
   # install debian package
-  sudo dpkg -i ${FILE}
+  sudo dpkg -i /tmp/${FILE}
   ;;
 zip)
   # extract
