@@ -38,11 +38,9 @@ Icon=/usr/share/sqldeveloper/icon.png
 Categories=Application;Development;
 EOF
 
-# create config dir
-[ ! -d /home/${USER}/.sqldeveloper ] && mkdir /home/${USER}/.sqldeveloper
-cat <<EOF> /home/${USER}/.sqldeveloper/jdk
-/usr/lib/jvm/java-7-oracle/
-EOF
+# create user config to the latest installed JDK version
+[ -d /home/${USER}/.sqldeveloper ] || mkdir /home/${USER}/.sqldeveloper
+[ -f /home/${USER}/.sqldeveloper/jdk ] || echo "/usr/lib/jvm/$(ls /usr/lib/jvm | grep oracle | tail -1)/" > /home/${USER}/.sqldeveloper/jdk
 
 # set owner
 chown -R ${USER}:${USER} /home/${USER}/.sqldeveloper/
