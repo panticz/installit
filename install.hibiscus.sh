@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install Java
-wget https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+wget https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # download Jameica
 if [ "$(uname -m)" == "x86_64" ]; then
