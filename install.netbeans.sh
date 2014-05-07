@@ -8,7 +8,7 @@ else
 fi
 
 # install Java JDK
-wget -q https://raw.github.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
 
 # download and install netbeans from homepage
 wget -q ${URL} -O /tmp/netbeans-linux.sh
