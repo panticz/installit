@@ -15,6 +15,7 @@ oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # add repository
+sudo apt-get install software-properties-common
 sudo add-apt-repository -y ppa:webupd8team/java
 
 # update repository
