@@ -29,5 +29,5 @@ unset dl_direct
 # set Java environment variables
 sudo apt-get install -y oracle-java8-set-default
 
-# set java 7 as default java version
+# set java 8 as default java version
 sudo update-java-alternatives -s java-8-oracle
