@@ -13,7 +13,7 @@ wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-
 apt-get install -y tomcat7
 
 # configure JAVA_HOME
-echo "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm | grep oracle | tail -1)" >> /etc/default/tomcat7
+echo "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm | grep oracle | tail -1)" >> /etc/default/tomcat?
 
 # install authbind
 apt-get install -y authbind
