@@ -3,10 +3,18 @@
 # download link
 if [ "$(uname -m)" == "x86_64" ]; then
   # 64 bit
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-linux-gtk-x86_64.tar.gz
+  if [ "$1" == "-e" ]; then
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-linux-gtk-x86_64.tar.gz
+  else
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-linux-gtk-x86_64.tar.gz
+  fi
 else
   # 32 bit
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-linux-gtk.tar.gz
+    if [ "$1" == "-e" ]; then
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-linux-gtk.tar.gz
+  else
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-linux-gtk.tar.gz
+  fi
 fi
 
 # install Java JDK
