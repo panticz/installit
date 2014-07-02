@@ -1,6 +1,11 @@
 #!/bin/bash
 
-URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.2.5/phpMyAdmin-4.2.5-english.tar.bz2
+if [[ $(dpkg-query -W -f='${Version}' mysql-server) =~ 5.5 ]]; then
+  URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.2.5/phpMyAdmin-4.2.5-english.tar.bz2
+else
+  URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.0.10/phpMyAdmin-4.0.10-english.tar.bz2
+fi
+
 
 # set variables
 FILE=${URL##*/}
