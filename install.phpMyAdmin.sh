@@ -8,7 +8,6 @@ else
   URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.0.10/phpMyAdmin-4.0.10-english.tar.bz2
 fi
 
-
 # set variables
 FILE=${URL##*/}
 
