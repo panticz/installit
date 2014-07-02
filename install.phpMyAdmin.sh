@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.0.8/phpMyAdmin-4.0.8-english.tar.bz2
+URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.2.5/phpMyAdmin-4.2.5-english.tar.bz2
 
 # set variables
 FILE=${URL##*/}
