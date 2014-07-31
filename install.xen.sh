@@ -46,7 +46,7 @@ sed -i '$ i\xm sched-credit -d Domain-0 -w 512' /etc/rc.local
 
 # Workaround for wheezy "powernow-k8: transition frequency failed"
 if [[ "$(uname -r)" == *3.2.0* ]]; then
-   echo "blacklist powernow_k8" > /etc/modprobe.d/xen-blacklist.conf
+   echo "blacklist powernow_k8" > /etc/modprobe.d/blacklist.conf
 fi
 
 # FIX for first generatio Athlon / Opteron AMD CPUs
