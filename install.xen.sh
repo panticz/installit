@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# install debian xen kernel
-apt-get install -y xen-linux-system xen-tools debootstrap
+if [ "$(lsb_release -is)" == "Ubuntu" ]; then
+ # install Ubuntu xen kernel
+ apt-get install -y xen-system-amd64 xen-tools
+else 
+ # install Debian xen kernel
+ apt-get install -y xen-linux-system xen-tools debootstrap
  
-# OPTINAL: install qemu for HVM guests
-. /etc/os-release
-if [ ${VERSION_ID} -lt 7 ]; then
-   apt-get install -y xen-qemu-dm-4.0
+ # OPTINAL: install qemu for HVM guests
+ . /etc/os-release
+ if [ ${VERSION_ID} -lt 7 ]; then
+    apt-get install -y xen-qemu-dm-4.0
+ fi
 fi
+
 
 # configure grub to start xen kernel
 dpkg-divert --divert /etc/grub.d/09_linux_xen --rename /etc/grub.d/20_linux_xen
