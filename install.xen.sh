@@ -12,6 +12,11 @@ else
  if [ ${VERSION_ID} -lt 7 ]; then
     apt-get install -y xen-qemu-dm-4.0
  fi
+ 
+ # Workaround for wheezy "powernow-k8: transition frequency failed" 
+ if [[ "$(uname -r)" == *3.2.0* ]]; then
+  echo "blacklist powernow_k8" > /etc/modprobe.d/blacklist.conf
+ fi
 fi
 
 
@@ -43,11 +48,6 @@ sed -i 's|XENDOMAINS_RESTORE=true|XENDOMAINS_RESTORE=false |g' /etc/default/xend
  
 # set more cpu time for dom0
 sed -i '$ i\xm sched-credit -d Domain-0 -w 512' /etc/rc.local
-
-# Workaround for wheezy "powernow-k8: transition frequency failed"
-if [[ "$(uname -r)" == *3.2.0* ]]; then
-   echo "blacklist powernow_k8" > /etc/modprobe.d/blacklist.conf
-fi
 
 # FIX for first generatio Athlon / Opteron AMD CPUs
 if [[ $(cat /proc/cpuinfo | grep 'model name' | cut -d':' -f2) =~ AMD.*(Athlon.*64.*Processor|Opteron.*185) ]]; then
