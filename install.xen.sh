@@ -3,6 +3,16 @@
 if [ "$(lsb_release -is)" == "Ubuntu" ]; then
  # install Ubuntu xen kernel
  apt-get install -y xen-system-amd64 xen-tools
+ 
+  # create network bridge
+ sed -i 's|auto eth0|#auto eth0|g' /etc/network/interfaces
+ sed -i 's|iface eth0 inet dhcp|#iface eth0 inet dhcp|g' /etc/network/interfaces
+
+ cat <<EOF>> /etc/network/interfaces
+auto xenbr0
+iface xenbr0 inet dhcp
+  bridge_ports eth0
+EOF
 else 
  # install Debian xen kernel
  apt-get install -y xen-linux-system xen-tools debootstrap
