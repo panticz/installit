@@ -25,7 +25,7 @@ else
  
  # Workaround for wheezy "powernow-k8: transition frequency failed" 
  if [[ "$(uname -r)" == *3.2.0* ]]; then
-  echo "blacklist powernow_k8" > /etc/modprobe.d/blacklist.conf
+  echo "blacklist powernow_k8" >> /etc/modprobe.d/blacklist.conf
  fi
 fi
 
