@@ -6,4 +6,10 @@ sudo dpkg --add-architecture i386
 sudo apt-get update -qq
 
 # install wine
-sudo apt-get install -y wine1.6
+if [ "$1" == "-n" ]; then
+  # development release
+  sudo apt-get install -y wine1.7
+else
+  # stable release
+  sudo apt-get install -y wine1.6
+fi
