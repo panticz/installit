@@ -2,6 +2,7 @@
 
 # add repository
 sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+sudo dpkg --add-architecture i386
 sudo apt-get update -qq
 
 # install wine
