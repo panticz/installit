@@ -7,29 +7,29 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # install debconf
-sudo apt-get install -y debconf-utils
+apt-get install -y debconf-utils
 
 # create answer file
-sudo debconf-set-selections <<\EOF
+debconf-set-selections <<\EOF
 oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # ensure that add-apt-repository is installed
-sudo apt-get install -y software-properties-common
+apt-get install -y software-properties-common
 
 # add repository
-sudo add-apt-repository -y ppa:webupd8team/java
+add-apt-repository -y ppa:webupd8team/java
 
 # update repository
-sudo apt-get update -qq
+apt-get update -qq
 
 # install
 export dl_direct=DIRECT
-sudo -E apt-get install -y oracle-java8-installer
+apt-get install -y oracle-java8-installer
 unset dl_direct
 
 # set Java environment variables
-sudo apt-get install -y oracle-java8-set-default
+apt-get install -y oracle-java8-set-default
 
 # set java 8 as default java version
-sudo update-java-alternatives -s java-8-oracle
+update-java-alternatives -s java-8-oracle
