@@ -13,6 +13,10 @@ function fix_libxml2() {
 # enable universe repository
 sudo sed -i "s/# \(deb .* universe\)/\1/" /etc/apt/sources.list
 
+# add support for 32 bit libs
+sudo dpkg --add-architecture i386
+sudo apt-get update
+
 # install libs
 sudo apt-get install -y libxml2:i386
 sudo apt-get install -y libatk1.0-0:i386
