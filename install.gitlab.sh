@@ -7,7 +7,8 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # parse download URL from GitLab page
-URL=$(wget -q --no-check-certificate https://about.gitlab.com/downloads/archives/ -O - | grep -i href | grep -i $(lsb_release -is)-$(lsb_release -rs) | head -1 | cut -d"\"" -f2)
+. /etc/os-release 
+URL=$(wget -q --no-check-certificate https://about.gitlab.com/downloads/archives/ -O - | grep -i href | grep -i ${ID}-${VERSION_ID} | head -1 | cut -d"\"" -f2)
 
 # download gitlab omnibus package
 wget -q ${URL} -O /tmp/gitlab_amd64.deb
