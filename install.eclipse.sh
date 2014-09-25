@@ -44,6 +44,12 @@ EOF
 sudo mv /tmp/eclipse /usr/bin/eclipse
 sudo chmod 755 /usr/bin/eclipse
 
+# fix UI bug on Debian Wheezy
+. /etc/os-release
+if [ "${ID}" == "debian" -a "${VERSION_ID}" == "7" ]; then
+  sudo sed -i '3i export SWT_GTK3=0' /usr/bin/eclipse
+fi
+
 # create starter
 cat <<EOF> /tmp/eclipse.desktop
 [Desktop Entry]
