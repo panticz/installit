@@ -27,7 +27,7 @@ wget -q ${URL} -P /tmp
 [ -d /usr/lib/eclipse/ ] && sudo mv /usr/lib/eclipse/ /usr/lib/eclipse.$(date -I)
 
 # install new release
-sudo tar xzf /tmp/eclipse-jee-*-linux-gtk*.tar.gz -C /usr/lib/
+sudo tar xzf /tmp/eclipse-*-linux-gtk*.tar.gz -C /usr/lib/
 
 # set owner and permissions
 sudo chown -R root:root /usr/lib/eclipse
@@ -65,4 +65,4 @@ sudo chmod +r /usr/share/applications/eclipse.desktop
 sudo sed -i 's|-Xmx384m|-Xmx1024m|g' /usr/lib/eclipse/eclipse.ini
 
 # clean up
-rm /tmp/eclipse-jee-juno-SR2-linux-gtk*.tar.gz
+rm /tmp/eclipse-*-linux-gtk*.tar.gz
