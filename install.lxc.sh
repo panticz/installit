@@ -22,3 +22,6 @@ EOF
 
 # disable auto configuration for network bridge by lxc
 sed -i 's|USE_LXC_BRIDGE="true"|USE_LXC_BRIDGE="false"|g' /etc/default/lxc-net
+
+# disable network managed by NetworkManager when installed
+[ -f /etc/NetworkManager/NetworkManager.conf ] && sed -i 's|managed=true|managed=false|g' /etc/NetworkManager/NetworkManager.conf
