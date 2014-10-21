@@ -15,7 +15,7 @@ oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # ensure that add-apt-repository is installed
-apt-get install -y software-properties-common
+apt-get install -y python-software-properties
 
 # add repository
 add-apt-repository -y ppa:webupd8team/java
