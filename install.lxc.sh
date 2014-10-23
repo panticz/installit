@@ -25,3 +25,6 @@ sed -i 's|USE_LXC_BRIDGE="true"|USE_LXC_BRIDGE="false"|g' /etc/default/lxc-net
 
 # disable network managed by NetworkManager when installed
 [ -f /etc/NetworkManager/NetworkManager.conf ] && sed -i 's|managed=true|managed=false|g' /etc/NetworkManager/NetworkManager.conf
+
+# allow all user to list the containers
+echo "ALL ALL=NOPASSWD: /usr/bin/lxc-ls" >> /etc/sudoers.d/lxc
