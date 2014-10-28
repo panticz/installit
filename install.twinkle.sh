@@ -11,5 +11,5 @@ if [ ${RELEASE} -ge 1404 ]; then
   rm /etc/apt/sources.list.d/twinkle.list
   apt-get update
 else
-  apt-get install twinkle
+  apt-get install -y twinkle
 fi
