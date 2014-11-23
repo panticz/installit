@@ -12,6 +12,8 @@ if [ ${RELEASE} -ge 1310 ]; then
   sudo apt-get install -y libxcb1:i386
   sudo apt-get install -y libxdmcp6:i386
   sudo apt-get install -y libxext6:i386 
+  sudo apt-get install -y libjpeg62:i386
+  sudo apt-get install -y libxinerama1:i386
 else
   sudo apt-get install -y libc6-i386 lib32asound2 lib32z1 ia32-libs
 fi
