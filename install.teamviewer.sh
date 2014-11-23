@@ -18,10 +18,10 @@ fi
 
 if [ "$(uname -m)" == "x86_64" -a ${RELEASE} -lt 1310 ]; then
   # 64 bit
-  URL=http://download.teamviewer.com/download/version_9x/teamviewer_linux_x64.deb
+  URL=http://download.teamviewer.com/download/version_10x/teamviewer_linux_x64.deb
 else
   # 32 bit
-  URL=http://download.teamviewer.com/download/version_9x/teamviewer_linux.deb
+  URL=http://download.teamviewer.com/download/version_10x/teamviewer_linux.deb
 fi
 
 # download
