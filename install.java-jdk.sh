@@ -15,7 +15,14 @@ oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # ensure that add-apt-repository is installed
-apt-get install -y python-software-properties
+. /etc/os-release
+if [ "${ID}" == "debian" ]; then
+  # debian
+  apt-get install -y python-software-properties
+else
+  # ubuntu
+  apt-get install -y software-properties-common
+fi
 
 # add repository
 add-apt-repository -y ppa:webupd8team/java
