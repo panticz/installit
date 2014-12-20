@@ -18,3 +18,6 @@ dpkg -i /tmp/gitlab_amd64.deb
 
 # configure
 gitlab-ctl reconfigure
+
+# configure domain
+sed -i "s|gitlab.example.com|$($hostname -A)|g" /var/opt/gitlab/gitlab-rails/etc/gitlab.yml
