@@ -16,9 +16,7 @@ EOF
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 
 # update repository list
-cat << EOF | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
-deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib
-EOF
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 sudo apt-get update -qq
 
 # install
