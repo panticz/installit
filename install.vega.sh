@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install Java JDK
+wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
+
 sudo apt-get install libwebkitgtk-1.0
 
 # download link
