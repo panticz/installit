@@ -9,4 +9,4 @@ wget http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community-6.2.
 sudo dpkg -i /tmp/mysql-workbench-community-*-1ubu1404-amd64.deb
 
 # fix possible dependency errors
-apt-get install -f
+sudo apt-get install -f -y
