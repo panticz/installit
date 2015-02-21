@@ -30,10 +30,10 @@ fi
 wget -q ${URL} -P /tmp
 
 # install
-sudo dpkg -i /tmp/teamviewer_linux*.deb
+sudo dpkg -i /tmp/teamviewer_*.deb
 
 # fix possible installation errors
 sudo apt-get install -f -y
 
 # clean up
-rm /tmp/teamviewer_linux*.deb
+rm /tmp/teamviewer_*.deb
