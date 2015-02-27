@@ -13,4 +13,4 @@ fi
 wget ${URL} -P /tmp
 
 # install
-sudo dpkg -i /tmp/google-musicmanager-beta_current_amd64.deb
+sudo dpkg -i /tmp/google-musicmanager-beta_current_*.deb
