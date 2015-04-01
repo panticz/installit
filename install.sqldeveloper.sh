@@ -47,7 +47,7 @@ esac
 sudo sed -i '1a unset GNOME_DESKTOP_SESSION_ID' /opt/sqldeveloper/sqldeveloper.sh
 
 # create startet
-cat << EOF | sudo tee -a "/usr/share/applications/Oracle SQL Developer.desktop"
+cat << EOF | sudo tee -a "/usr/share/applications/oracle-sql-developer.desktop"
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
