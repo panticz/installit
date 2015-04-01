@@ -4,9 +4,9 @@
 if [ "$(uname -m)" == "x86_64" ]; then
   # 64 bit
   if [ "$1" == "-e" ]; then
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-jee-luna-R-linux-gtk-x86_64.tar.gz
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-java-luna-SR2-linux-gtk.tar.gz
   else
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/R/eclipse-java-luna-R-linux-gtk-x86_64.tar.gz
+    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/luna/SR2/eclipse-java-luna-SR2-linux-gtk-x86_64.tar.gz
   fi
 else
   # 32 bit
