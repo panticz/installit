@@ -4,6 +4,8 @@
 sudo apt-get install -y thinkfan
 
 # configure
+echo "options thinkpad_acpi fan_control=1" > /etc/modprobe.d/thinkpad_acpi.conf
+
 sudo sed -i 's|START=no|START=yes|' /etc/default/thinkfan
 sudo sed -i 's|DAEMON_ARGS="-q"|DAEMON_ARGS="-q -b 1 -s 15"|' /etc/default/thinkfan
 
