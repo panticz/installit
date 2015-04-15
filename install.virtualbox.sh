@@ -25,7 +25,7 @@ sudo apt-get install -y virtualbox-4.3
 # install extension pack
 VERSION=$(dpkg-query -W -f='${Version}' "virtualbox*" | cut -d "-" -f1)
 wget http://download.virtualbox.org/virtualbox/${VERSION}/Oracle_VM_VirtualBox_Extension_Pack-${VERSION}.vbox-extpack -P /tmp/
-sudo VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack-${VERSION}vbox-extpack
+sudo VBoxManage extpack install /tmp/Oracle_VM_VirtualBox_Extension_Pack-${VERSION}.vbox-extpack
 
 # add current user to vboxusers group
 sudo adduser ${USER} vboxusers
