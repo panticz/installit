@@ -27,8 +27,10 @@ fi
 # add repository
 add-apt-repository -y ppa:webupd8team/java
 
-# fix distribution name on Debian Wheezy
-[ -f /etc/apt/sources.list.d/webupd8team-java-wheezy.list ] && sed -i 's|wheezy|trusty|g' /etc/apt/sources.list.d/webupd8team-java-wheezy.list
+# fix distribution name on Debian
+for FILE in $(find /etc/apt/sources.list.d/ -name "*webupd8team*.list"); do
+  sed -i 's|squeeze|trusty|g;s|wheezy|trusty|g;s|jessie|trusty|g' ${FILE}
+}
 
 # update repository
 apt-get update -qq
