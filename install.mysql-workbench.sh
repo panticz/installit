@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# install libcairo2
-wget http://mirrors.kernel.org/ubuntu/pool/main/c/cairo/libcairo2_1.13.0~20140204-0ubuntu1.1_amd64.deb -P /tmp
-sudo dpkg -i /tmp/libcairo2_*_amd64.deb
+# add repository
+. /etc/os-release
+echo "deb http://repo.mysql.com/apt/${ID}/ $(lsb_release -cs) workbench-6.3" | sudo tee -a /etc/apt/sources.list.d/mysql.list
 
-# download and install mysql-workbench
-wget http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community-6.3.3-1ubu1410-amd64.deb -P /tmp
-sudo dpkg -i /tmp/mysql-workbench-community-*-1ubu1404-amd64.deb
+# update package list
+sudo apt-get update
 
-# fix possible dependency errors
-sudo apt-get install -f -y
+# install MySQL Workbench Community edition
+sudo apt-get install -y mysql-workbench-community
