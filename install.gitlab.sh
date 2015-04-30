@@ -9,6 +9,9 @@ fi
 # install required packages
 apt-get install -y ca-certificates curl
 
+#  bypass the apt-cacher-ng proxy
+echo 'Acquire::HTTP::Proxy::packages.gitlab.com "DIRECT";' > /etc/apt/apt.conf.d/99_gitlab
+
 # download GitLab installation script
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb | bash
 
