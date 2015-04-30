@@ -16,4 +16,5 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.de
 apt-get install -y gitlab-ce
 
 # configure domain
-sed -i "s|gitlab.example.com|$($hostname -A)|g" /var/opt/gitlab/gitlab-rails/etc/gitlab.yml
+sed -i "s|gitlab.example.com|$(hostname -A | tr -d ' ')|g" /etc/gitlab/gitlab.rb
+gitlab-ctl reconfigure
