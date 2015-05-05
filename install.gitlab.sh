@@ -15,6 +15,9 @@ echo 'Acquire::HTTP::Proxy::packages.gitlab.com "DIRECT";' > /etc/apt/apt.conf.d
 # download GitLab installation script
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb | bash
 
+# workaround for PostgreSQL shmmax issue
+echo 17179869184 > /proc/sys/kernel/shmmax
+
 # install GitLab Community Edition
 apt-get install -y gitlab-ce
 
