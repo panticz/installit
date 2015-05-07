@@ -16,7 +16,8 @@ icinga-cgi icinga/httpd select apache2
 EOF
 
 # install the latest version 
-if [ "$1" == "-n" ]; then
+. /etc/os-release
+if [ "${ID}" == "debian" ]; then
   # add debmon.org Icinga repository
   DIST=$(grep PRETTY_NAME /etc/os-release | cut -d "(" -f2 | cut -d ")" -f1)
   echo "deb http://debmon.org/debmon debmon-${DIST} main" > /etc/apt/sources.list.d/debmon.list
