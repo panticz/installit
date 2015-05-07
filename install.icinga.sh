@@ -18,7 +18,8 @@ EOF
 # install the latest version 
 if [ "$1" == "-n" ]; then
   # add debmon.org Icinga repository
-  echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon.list
+  DIST=$(grep PRETTY_NAME /etc/os-release | cut -d "(" -f2 | cut -d ")" -f1)
+  echo "deb http://debmon.org/debmon debmon-${DIST} main" > /etc/apt/sources.list.d/debmon.list
   wget -q http://debmon.org/debmon/repo.key -O - | apt-key add -
   apt-get update
 fi
