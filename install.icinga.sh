@@ -34,6 +34,9 @@ sed -i 's|use_syslog=1|use_syslog=0|g' /etc/icinga/icinga.cfg
 # show 1000 results by default
 sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 
+# restart icinga
+/etc/init.d/icinga restart
+
 # redirect to icinga if standalone webserver
 DOCUMENT_ROOT=$(grep DocumentRoot /etc/apache2/sites-enabled/*default.conf | cut -d" " -f2)
 if [ $(grep -c 'It works!' ${DOCUMENT_ROOT}/index.html) -gt 0 ]; then
@@ -53,6 +56,3 @@ window.location = "/icinga/"
 </html>
 EOF
 fi
-
-# restart icinga
-/etc/init.d/icinga restart
