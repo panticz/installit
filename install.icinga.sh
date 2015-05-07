@@ -28,11 +28,6 @@ fi
 # install icinga
 apt-get install -y icinga
 
-# fix installation problems on latest version 
-if [ "$1" == "-n" ]; then
-  apt-get install -f
-fi
-
 # disable double log output to syslog
 sed -i 's|use_syslog=1|use_syslog=0|g' /etc/icinga/icinga.cfg
 
