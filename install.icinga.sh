@@ -35,7 +35,7 @@ sed -i 's|use_syslog=1|use_syslog=0|g' /etc/icinga/icinga.cfg
 sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 
 # redirect to icinga if standalone webserver
-DOCUMENT_ROOT=$(grep DocumentRoot /etc/apache2/sites-enabled/*default.conf  | cut -d" " -f2)
+DOCUMENT_ROOT=$(grep DocumentRoot /etc/apache2/sites-enabled/*default.conf | cut -d" " -f2)
 if [ $(grep -c 'It works!' ${DOCUMENT_ROOT}/index.html) -gt 0 ]; then
 mv ${DOCUMENT_ROOT}/index.html ${DOCUMENT_ROOT}/index.html.$(date -I)
 cat <<EOF> ${DOCUMENT_ROOT}/index.html
