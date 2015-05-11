@@ -8,7 +8,7 @@ fi
 
 # pre-configure
 debconf-set-selections <<\EOF
-postfix postfix/mailname string mx
+postfix postfix/mailname string $(hostname)
 postfix postfix/main_mailer_type select Internet Site
 EOF
  
