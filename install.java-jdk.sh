@@ -35,10 +35,11 @@ for FILE in $(find /etc/apt/sources.list.d/ -name "*webupd8team*.list"); do
 # update repository
 apt-get update -qq
 
+#  bypass the apt-cacher-ng proxy
+echo 'Acquire::HTTP::Proxy::download.oracle.com "DIRECT";' > /etc/apt/apt.conf.d/99_oracle
+
 # install
-export dl_direct=DIRECT
 apt-get install -y oracle-java8-installer
-unset dl_direct
 
 # set Java environment variables
 apt-get install -y oracle-java8-set-default
