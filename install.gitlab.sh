@@ -7,7 +7,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # install required packages
-apt-get install -y ca-certificates curl
+apt-get install -y ca-certificates curl cron
 
 #  bypass the apt-cacher-ng proxy
 echo 'Acquire::HTTP::Proxy::packages.gitlab.com "DIRECT";' > /etc/apt/apt.conf.d/99_gitlab
