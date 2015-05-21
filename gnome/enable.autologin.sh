@@ -10,8 +10,8 @@ fi
 RELEASE=$(lsb_release -rs | tr -d ".")
 if [ ${RELEASE} -ge 1110 ]; then
 cat << EOF | sudo tee -a  /etc/lightdm/lightdm.conf
+[SeatDefaults]
 autologin-user=${USER}
-autologin-user-timeout=0
 EOF
 else
 cat << EOF | sudo tee -a /etc/gdm/custom.conf
