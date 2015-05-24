@@ -1,8 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install -y gnome-session-flashback
-sudo apt-get install -y gnome-tweak-tool
-sudo apt-get install -y gtk2-engines-pixbuf
+sudo apt-get install -y gnome-session-flashback gnome-tweak-tool gtk2-engines-pixbuf
 sudo /usr/lib/lightdm/lightdm-set-defaults -s gnome-fallback
 
 # show printer symbol in gnome menu
