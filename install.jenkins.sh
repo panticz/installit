@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# install required packages
+apt-get install -y wget
+
 # add repository key
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
 
