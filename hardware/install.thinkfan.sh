@@ -23,6 +23,7 @@ hwmon /sys/devices/virtual/hwmon/hwmon0/temp1_input
 (7,	90,	32767)
 EOF
 
+# start on Ubuntu Vivid
 if [ $(lsb_release -rs | tr -d ".") -ge 1504 ]; then
     sed -i '$i /etc/init.d/thinkfan restart' /etc/rc.local
 fi
