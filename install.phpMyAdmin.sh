@@ -2,7 +2,7 @@
 
 if [[ $(dpkg-query -W -f='${Version}' mysql-server) =~ 5.5 ]]; then
   # current version compatible with PHP 5.3 and MySQL 5.5
-  URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.2.9.1/phpMyAdmin-4.2.9.1-english.tar.bz2
+  URL=http://files.phpmyadmin.net/phpMyAdmin/4.4.10/phpMyAdmin-4.4.10-all-languages.zip
 else
   # older version compatible with PHP 5.2 and MySQL 5
   URL=http://switch.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.0.10/phpMyAdmin-4.0.10-english.tar.bz2
