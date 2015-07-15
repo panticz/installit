@@ -13,7 +13,7 @@ apt-get install -y ca-certificates curl cron
 echo 'Acquire::HTTP::Proxy::packages.gitlab.com "DIRECT";' > /etc/apt/apt.conf.d/99_gitlab
 
 # download GitLab installation script
-curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
+curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
 
 # workaround for PostgreSQL shmmax issue
 echo 17179869184 > /proc/sys/kernel/shmmax
