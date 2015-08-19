@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# install requirec applications
+# install required applications
 apt-get install -y wget apt-transport-https
+
 # add oracle repository
 wget http://oss.oracle.com/el4/RPM-GPG-KEY-oracle -O- | apt-key add -
 echo "deb https://oss.oracle.com/debian unstable main non-free" > /etc/apt/sources.list.d/oracle.list
