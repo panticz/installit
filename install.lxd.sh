@@ -7,4 +7,4 @@ sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 sed -i 's|utopic|trusty|g' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-utopic.list
 
 sudo apt-get update
-sudo apt-get install -y lxd lxcfs
+sudo apt-get install -y lxd lxc lxcfs
