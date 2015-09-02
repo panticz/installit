@@ -11,4 +11,4 @@ echo "deb https://oss.oracle.com/debian unstable main non-free" > /etc/apt/sourc
 apt-get update
  
 # install oracle
-apt-get install -y oracle-xe
+apt-get install -y --force-yes oracle-xe
