@@ -12,3 +12,14 @@ apt-get update
  
 # install oracle
 apt-get install -y --force-yes oracle-xe
+
+# configure profile
+cat <<EOF> /etc/profile.d/oracle.sh
+#!/bin/bash
+
+export ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
+export ORACLE_SID=XE
+export PATH=$PATH:$ORACLE_HOME/bin
+EOF
+
+chmod a+x /etc/profile.d/oracle.sh
