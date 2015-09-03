@@ -9,6 +9,10 @@ echo "deb https://oss.oracle.com/debian unstable main non-free" > /etc/apt/sourc
  
 # update repository
 apt-get update
+
+# configure kernel parameter
+sysctl -w kernel.shmmax=4294967295
+sysctl -w kernel.shmall=2097152
  
 # install oracle
 apt-get install -y --force-yes oracle-xe
