@@ -15,10 +15,13 @@ oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # ensure that add-apt-repository is installed
-if [ $(apt-cache search software-properties-common | wc -l) -eq 1 ]; then
-  apt-get install -y software-properties-common
-else
+. /etc/os-release
+if [ "${ID}" == "debian" ] && [ "${VERSION_ID}" == "7" ] ; then
+  # Debian Wheezy
   apt-get install -y python-software-properties
+else
+  # Ubuntu and Debian Jessie
+  apt-get install -y software-properties-common
 fi
 
 # add repository
