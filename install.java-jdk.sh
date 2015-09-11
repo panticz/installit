@@ -29,7 +29,7 @@ add-apt-repository -y ppa:webupd8team/java
 
 # fix distribution name on Debian
 for FILE in $(find /etc/apt/sources.list.d/ -name "*webupd8team*.list"); do
-  sed -i 's|squeeze|precise|g;s|wheezy|precise|g;s|jessie|trusty|g' ${FILE}
+  sed -i 's|wheezy|precise|g;s|jessie|trusty|g' ${FILE}
 done
 
 # update repository
