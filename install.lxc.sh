@@ -7,7 +7,14 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # install lxc
-apt-get install -y lxc
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
+
+# use Ubunut Trusty repository on Utopic
+sed -i 's|utopic|trusty|g' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-utopic.list
+
+apt-get update
+apt-get install -y lxc lxcfs
 
 # disable auto configuration for eth0
 sed -i 's|auto eth0|#auto eth0|g' /etc/network/interfaces
