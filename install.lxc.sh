@@ -16,9 +16,10 @@ sed -i 's|utopic|trusty|g' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-
 apt-get update
 apt-get install -y lxc lxcfs
 
-# disable auto configuration for eth0
-sed -i 's|auto eth0|#auto eth0|g' /etc/network/interfaces
-sed -i 's|iface eth0 inet dhcp|#iface eth0 inet dhcp|g' /etc/network/interfaces
+if [ "$1" == "-b" ]; then
+  # disable auto configuration for eth0
+  sed -i 's|auto eth0|#auto eth0|g' /etc/network/interfaces
+  sed -i 's|iface eth0 inet dhcp|#iface eth0 inet dhcp|g' /etc/network/interfaces
 
 # create network bridge
 cat <<EOF>> /etc/network/interfaces
@@ -27,11 +28,12 @@ iface lxcbr0 inet dhcp
   bridge_ports eth0
 EOF
 
-# disable auto configuration for network bridge by lxc
-sed -i 's|USE_LXC_BRIDGE="true"|USE_LXC_BRIDGE="false"|g' /etc/default/lxc-net
-
-# disable network managed by NetworkManager when installed
-[ -f /etc/NetworkManager/NetworkManager.conf ] && sed -i 's|managed=true|managed=false|g' /etc/NetworkManager/NetworkManager.conf
+  # disable auto configuration for network bridge by lxc
+  sed -i 's|USE_LXC_BRIDGE="true"|USE_LXC_BRIDGE="false"|g' /etc/default/lxc-net
+  
+  # disable network managed by NetworkManager when installed
+  [ -f /etc/NetworkManager/NetworkManager.conf ] && sed -i 's|managed=true|managed=false|g' /etc/NetworkManager/NetworkManager.conf
+fi
 
 # allow all user to list the containers
 [ -d /etc/sudoers.d/ ] && echo "ALL ALL=NOPASSWD: /usr/bin/lxc-ls" >> /etc/sudoers.d/lxc
