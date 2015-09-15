@@ -12,7 +12,7 @@ add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 
 # fix dist name
 for FILE in $(find /etc/apt/sources.list.d/ -name "*lxc*.list"); do
-  sed -i 's|stretch|trusty|g;s|utopic|trusty|g' ${FILE}
+  sed -i 's|jessie|trusty|g;s|utopic|trusty|g' ${FILE}
 done
 
 apt-get update
