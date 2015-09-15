@@ -10,8 +10,10 @@ fi
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 
-# use Ubunut Trusty repository on Utopic
-sed -i 's|utopic|trusty|g' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-utopic.list
+# fix dist name
+for FILE in $(find /etc/apt/sources.list.d/ -name "*lxc*.list"); do
+  sed -i 's|stretch|trusty|g;s|utopic|trusty|g' ${FILE}
+done
 
 apt-get update
 apt-get install -y lxc lxcfs
