@@ -23,7 +23,7 @@ cat <<EOF> /etc/profile.d/oracle.sh
 
 export ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
 export ORACLE_SID=XE
-export PATH=$PATH:$ORACLE_HOME/bin
+export PATH=\$PATH:\$ORACLE_HOME/bin
 EOF
 
 chmod a+x /etc/profile.d/oracle.sh
