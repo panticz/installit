@@ -19,6 +19,9 @@ apt-get update
 apt-get install -y lxc lxcfs
 
 if [ "$1" == "-b" ]; then
+  # install required packages
+  apt-get install -y bridge-utils
+
   # disable auto configuration for eth0
   sed -i 's|auto eth0|#auto eth0|g' /etc/network/interfaces
   sed -i 's|iface eth0 inet dhcp|#iface eth0 inet dhcp|g' /etc/network/interfaces
