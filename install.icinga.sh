@@ -38,4 +38,4 @@ sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 /etc/init.d/icinga restart
 
 # redirect by default to /icinga/
-echo 'RedirectMatch "^/$" "/icinga/"' >> /etc/apache2/conf-enabled/icinga.conf
+echo 'RedirectMatch "^/$" "/icinga/"' >> /etc/apache2/conf-available/icinga.conf
