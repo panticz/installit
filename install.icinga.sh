@@ -39,3 +39,6 @@ sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 
 # redirect by default to /icinga/
 echo 'RedirectMatch "^/$" "/icinga/"' >> /etc/apache2/conf-available/icinga.conf
+
+# restart werbserver
+service apache2 restart
