@@ -37,22 +37,5 @@ sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 # restart icinga
 /etc/init.d/icinga restart
 
-# redirect to icinga if standalone webserver
-DOCUMENT_ROOT=$(grep DocumentRoot /etc/apache2/sites-enabled/*default.conf | cut -d" " -f2)
-if [ $(grep -c 'It works!' ${DOCUMENT_ROOT}/index.html) -gt 0 ]; then
-mv ${DOCUMENT_ROOT}/index.html ${DOCUMENT_ROOT}/index.html.$(date -I)
-cat <<EOF> ${DOCUMENT_ROOT}/index.html
-<html>
-<head>
-<script type="text/javascript">
-<!--
-window.location = "/icinga/"
-//-->
-</script>
-</head>
-<body>
-<a href="/icinga/">Icinga</a>
-</body>
-</html>
-EOF
-fi
+# redirect by default to /icinga/
+echo 'RedirectMatch "^/$" "/icinga/"' >> /etc/apache2/conf-enabled/icinga.conf
