@@ -15,7 +15,7 @@ EOF
 # install wine
 if [ "$1" == "-n" ]; then
   # development release
-  sudo apt-get install -y wine1.7
+  sudo apt-get install -y wine1.8
 else
   # stable release
   sudo apt-get install -y wine1.6
