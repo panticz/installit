@@ -40,5 +40,9 @@ sed -i 's|result_limit=50|result_limit=1000|g' /etc/icinga/cgi.cfg
 # redirect by default to /icinga/
 echo 'RedirectMatch "^/$" "/icinga/"' >> /etc/apache2/conf-available/icinga.conf
 
+# allow "Re-schedule Next Host Check" from Icinga webgui
+sed -i 's|check_external_commands=0|check_external_commands=1|g' /etc/icinga/icinga.cfg
+chmod 2710 /var/lib/icinga/rw
+
 # restart werbserver
 service apache2 restart
