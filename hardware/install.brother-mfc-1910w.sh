@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Check for newer packages
-# http://support.brother.com/g/b/downloadlist.aspx?c=as_ot&lang=en&prod=mfc1910w_eu_as&os=128
-
 IP=192.168.1.4
 
 # Install printer
