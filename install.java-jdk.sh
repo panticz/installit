@@ -46,3 +46,6 @@ apt-get install -y oracle-java8-set-default
 
 # set java 8 as default java version
 update-java-alternatives -s java-8-oracle
+
+# move java desktop symbols
+[ -f /usr/share/applications/JB-mission-control-jdk8.desktop ] && sed -i 's|Categories=Development;Java;|Categories=Application;Network;|g' /usr/share/applications/JB-mission-control-jdk8.desktop
