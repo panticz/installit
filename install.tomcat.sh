@@ -12,10 +12,10 @@ wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-
 # install tomcat
 apt-get install -y tomcat8
 
-# configure JAVA_HOME
+# OPTIONAL: configure JAVA_HOME
 echo "JAVA_HOME=/usr/lib/jvm/$(ls /usr/lib/jvm | grep oracle | tail -1)" >> /etc/default/tomcat?
 
-# configure tomcat to port 80
+# configure tomcat to linsten on port 80 instead of default 8080
 sed -i 's|port="8080"|port="80"|g' /etc/tomcat?/server.xml
 
 # bind to a privileged port
