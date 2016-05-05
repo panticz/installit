@@ -9,7 +9,7 @@ Version=1.0
 Encoding=UTF-8
 Name=TeamViewer QS
 Exec=/opt/teamviewerqs/teamviewer
-Icon=/opt/teamviewer/tv_bin/desktop/teamviewer.png
+Icon=/opt/teamviewerqs/tv_bin/desktop/teamviewer.png
 Type=Application
 Categories=Network;
 EOF
