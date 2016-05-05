@@ -10,7 +10,8 @@ EOF
 sudo chmod a+x /usr/sbin/teamviewerqs
 
 # download icon
-wget -q http://www.icons101.com/icon_svg/id_54184/teamviewer.svg -O /usr/share/icons/teamviewer.svg
+wget -q http://www.icons101.com/icon_svg/id_54184/teamviewer.svg -O /tmp/teamviewer.svg
+sudo cp /tmp/teamviewer.svg /usr/share/icons/teamviewer.svg
 
 # create starter
 cat << EOF | sudo tee -a "/usr/share/applications/teamviewerqs.desktop"
