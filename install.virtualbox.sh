@@ -20,7 +20,7 @@ echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) co
 sudo apt-get update -qq
 
 # install
-sudo apt-get install -y virtualbox-5.0
+sudo apt-get install -y virtualbox-5.0 --allow-unauthenticated
 
 # install extension pack
 VERSION=$(dpkg-query -W -f='${Version}' "virtualbox*" | cut -d "-" -f1)
