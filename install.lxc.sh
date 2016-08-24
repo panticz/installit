@@ -10,9 +10,6 @@ fi
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
 
-# fix not yet availlable Ubuntu Xenial repository
-[ -f /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-xenial.list ] && sed -i 's|xenial|devel|' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-xenial.list
-
 # fix dist name
 for FILE in $(find /etc/apt/sources.list.d/ -name "*lxc*.list"); do
   sed -i 's|jessie|trusty|g;s|utopic|trusty|g' ${FILE}
