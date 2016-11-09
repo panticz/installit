@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# download link
-if [ "$1" == "-e" ]; then
-  # Java EE
-  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javaee-linux.sh
-else
-  # default, Java SE
+if [ "$1" == "-j" ]; then
+  # Java SE only
   URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
+else
+  # with all included programming languages
+  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-linux.sh
 fi
 
 # install Java JDK
