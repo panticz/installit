@@ -3,10 +3,10 @@
 # download link
 if [ "$1" == "-e" ]; then
   # Java EE
-  URL=http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-javaee-linux.sh
+  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javaee-linux.sh
 else
   # default, Java SE
-  URL=http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-javase-linux.sh
+  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
 fi
 
 # install Java JDK
