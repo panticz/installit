@@ -1,8 +1,13 @@
 #!/bin/bash
 
-sudo apt-get install docker-engine git wget
-
-sudo sed -i 's|ExecStart=/usr/bin/dockerd -H fd://|ExecStart=/usr/bin/dockerd -H fd:// --insecure-registry 172.30.0.0/16|g' /etc/systemd/system/multi-user.target.wants/docker.service
+. /etc/os-release
+if [ "${ID_LIKE}" == "debian" ]; then
+    sudo apt-get install docker-engine git wget
+    sudo sed -i 's|ExecStart=/usr/bin/dockerd -H fd://|ExecStart=/usr/bin/dockerd -H fd:// --insecure-registry 172.30.0.0/16|g' /etc/systemd/system/multi-user.target.wants/docker.service
+else
+    yum install -y docker git wget
+    sudo sed -i "s|# INSECURE_REGISTRY='--insecure-registry'|INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'|g" /etc/sysconfig/docker
+fi
 
 systemctl enable docker
 systemctl start docker
