@@ -13,7 +13,7 @@ fi
 systemctl enable docker
 systemctl start docker
 
-wget https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz -qO /tmp/openshift-origin-client-tools-linux-64bit.tar.gz 
+wget https://github.com/openshift/origin/releases/download/v1.5.0-rc.0/openshift-origin-client-tools-v1.5.0-rc.0-49a4a7a-linux-64bit.tar.gz -qO /tmp/openshift-origin-client-tools-linux-64bit.tar.gz 
 tar xzf /tmp/openshift-origin-client-tools-linux-64bit.tar.gz -C /tmp/
 cp /tmp/openshift-origin-client-tools-*/oc /usr/local/bin/
 
