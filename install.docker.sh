@@ -7,7 +7,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # install required packages
-apt-get install -y apt-transport-https ca-certificates software-properties-commo
+apt-get install -y apt-transport-https ca-certificates software-properties-common
 
 # install Docker repository key
 wget https://yum.dockerproject.org/gpg -qO- | apt-key add -
