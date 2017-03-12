@@ -5,6 +5,7 @@ if [ "${ID_LIKE}" == "debian" ]; then
     wget -q --no-check-certificate https://raw.githubusercontent.com/panticz/installit/master/install.docker.sh -O - | bash -
     sudo apt-get install git wget
     sudo sed -i 's|ExecStart=/usr/bin/dockerd -H fd://|ExecStart=/usr/bin/dockerd -H fd:// --insecure-registry 172.30.0.0/16|g' /etc/systemd/system/multi-user.target.wants/docker.service
+    systemctl daemon-reload
 else
     yum install -y docker git wget
     sudo sed -i "s|# INSECURE_REGISTRY='--insecure-registry'|INSECURE_REGISTRY='--insecure-registry 172.30.0.0/16'|g" /etc/sysconfig/docker
