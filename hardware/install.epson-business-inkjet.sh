@@ -11,7 +11,7 @@ function fix_libxml2() {
 }
 
 # enable universe repository
-sudo sed -i "s/# \(deb .* universe\)/\1/" /etc/apt/sources.list
+sudo apt-add-repository universe
 
 # add support for 32 bit libs
 sudo dpkg --add-architecture i386
