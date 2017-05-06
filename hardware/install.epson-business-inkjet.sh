@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function fix_libxml2() {
+function fix_libs() {
    DEBDIR=/tmp/release/deb
    [ -d ${DEBDIR}/ ] && rm -r ${DEBDIR}/
    mkdir ${DEBDIR}/
@@ -38,7 +38,7 @@ tar xzf /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.tgz -C /tmp
 bash /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.install --noexec --keep --nox11 --target /tmp/release
 
 # fix pips-common package
-dpkg -s libxml2 1>/dev/null 2>&1 || fix_libxml2
+dpkg -s libxml2:i386 libgnutls30:i386 1>/dev/null 2>&1 || fix_libs
    
 # install driver
 sudo dpkg -i --force-architecture /tmp/release/pips-common_3.2.0-3_i386.deb
