@@ -7,6 +7,7 @@ function fix_libxml2() {
    dpkg-deb -x /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/
    dpkg-deb --control /tmp/release/pips-common_3.2.0-3_i386.deb ${DEBDIR}/DEBIAN
    sed -i 's|libxml2 (>= 2.7.4), ||g' ${DEBDIR}/DEBIAN/control
+   sed -i 's|libgnutls26 (>= 2.7.14-0), ||g' ${DEBDIR}/DEBIAN/control
    dpkg -b ${DEBDIR}/ /tmp/release/pips-common_3.2.0-3_i386.deb
 }
 
@@ -25,6 +26,7 @@ sudo apt-get install -y libcupsimage2:i386
 sudo apt-get install -y libgtk2.0-0:i386
 sudo apt-get install -y libpango1.0-0:i386
 sudo apt-get install -y libstdc++6:i386
+sudo apt-get install -y libgnutls30:i386
 
 # download driver package
 if [ ! -f /tmp/pips-pxb500-Ubuntu10.04-3.2.0-CG.tgz ]; then
