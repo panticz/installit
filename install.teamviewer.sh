@@ -1,39 +1,18 @@
 #!/bin/bash
 
-# install required libs
-RELEASE=$(lsb_release -rs | tr -d ".")
-if [ ${RELEASE} -ge 1310 ]; then
-  sudo apt-get install -y libxtst6:i386
-  sudo apt-get install -y gcc-4.8-base:i386
-  sudo apt-get install -y libc6:i386
-  sudo apt-get install -y libgcc1:i386
-  sudo apt-get install -y libx11-6:i386
-  sudo apt-get install -y libxau6:i386  
-  sudo apt-get install -y libxcb1:i386
-  sudo apt-get install -y libxdmcp6:i386
-  sudo apt-get install -y libxext6:i386 
-  sudo apt-get install -y libjpeg62:i386
-  sudo apt-get install -y libxinerama1:i386
-else
-  sudo apt-get install -y libc6-i386 lib32asound2 lib32z1 ia32-libs
-fi
+URL=http://download.teamviewer.com/download/teamviewer_i386.deb
 
-if [ "$(uname -m)" == "x86_64" -a ${RELEASE} -lt 1310 ]; then
-  # 64 bit
-  URL=http://download.teamviewer.com/download/teamviewer_amd64.deb
-else
-  # 32 bit
-  URL=http://download.teamviewer.com/download/teamviewer_i386.deb
-fi
+# add required 32 bit architecture on a 64 bit system
+sudo dpkg --add-architecture i386
 
-# download
-wget -q ${URL} -P /tmp
+# install required applications
+sudo apt-get install -y wget
 
-# install
-sudo dpkg -i /tmp/teamviewer_*.deb
+# download teamviewer
+wget -q ${URL} -O /tmp/teamviewer.deb
 
-# fix possible installation errors
-sudo apt-get install -f -y
+# install teamviewer
+sudo apt install -y /tmp/teamviewer.deb
 
 # clean up
-rm /tmp/teamviewer_*.deb
+rm /tmp/teamviewer.deb
