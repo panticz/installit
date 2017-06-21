@@ -65,6 +65,3 @@ EOF
 
 # set owner
 chown -R ${USER}:${USER} /home/${USER}/.sqldeveloper/
-
-# cleanup
-rm /tmp/${FILE}
