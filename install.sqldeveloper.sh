@@ -34,7 +34,7 @@ deb)
 zip)
   # extract
   [ -d /opt ] || sudo mkdir /opt
-  sudo unzip /tmp/${FILE} -d /opt/
+  sudo unzip -q /tmp/${FILE} -d /opt/
   sudo chmod +x /opt/sqldeveloper/sqldeveloper.sh
   ;;
 *)
