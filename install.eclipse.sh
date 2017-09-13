@@ -2,9 +2,9 @@
 
 # download link
 if [ "$1" == "-e" ]; then
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk-x86_64.tar.gz
+  URL=http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/oxygen/R/eclipse-jee-oxygen-R-linux-gtk-x86_64.tar.gz
 else
-  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
+  URL=http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/oxygen/R/eclipse-java-oxygen-R-linux-gtk-x86_64.tar.gz
 fi
 
 # install Java JDK
