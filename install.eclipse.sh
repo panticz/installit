@@ -1,20 +1,10 @@
 #/bin/bash
 
 # download link
-if [ "$(uname -m)" == "x86_64" ]; then
-  # 64 bit
-  if [ "$1" == "-e" ]; then
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk-x86_64.tar.gz
-  else
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
-  fi
+if [ "$1" == "-e" ]; then
+  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk-x86_64.tar.gz
 else
-  # 32 bit
-    if [ "$1" == "-e" ]; then
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk.tar.gz
-  else
-    URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk.tar.gz
-  fi
+  URL=http://mirror.netcologne.de/eclipse/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz
 fi
 
 # install Java JDK
