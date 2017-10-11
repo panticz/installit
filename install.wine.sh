@@ -21,3 +21,7 @@ else
   # stable release
   sudo apt-get install -y --install-recommends winehq-stable
 fi
+
+# install latest winetricks
+sudo apt-get install -y winetricks
+sudo winetricks --self-update
