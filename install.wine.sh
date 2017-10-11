@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # add repository
-sudo add-apt-repository -y ppa:ubuntu-wine/ppa
 sudo dpkg --add-architecture i386
-sudo apt-get update -qq
+wget -q https://dl.winehq.org/wine-builds/Release.key -O - | sudo apt-key add -
+sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+sudo apt-get update
 
 # pre-answer installation questions
 sudo debconf-set-selections <<\EOF
@@ -13,10 +14,10 @@ ttf-mscorefonts-installer msttcorefonts/present-mscorefonts-eula note
 EOF
 
 # install wine
-if [ "$1" == "-n" ]; then
-  # development release
-  sudo apt-get install -y wine1.8
+if [ "$1" == "-s" ]; then
+  # staging release
+  sudo apt-get install -y --install-recommends winehq-staging
 else
   # stable release
-  sudo apt-get install -y wine1.6
+  sudo apt-get install -y --install-recommends winehq-stable
 fi
