@@ -4,7 +4,7 @@
 sudo dpkg --add-architecture i386
 wget -q https://dl.winehq.org/wine-builds/Release.key -O - | sudo apt-key add -
 sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
-sudo apt-get update -q
+sudo apt-get update -qq
 
 # pre-answer installation questions
 sudo debconf-set-selections <<\EOF
