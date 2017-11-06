@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# add LXD PPA repository
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
-
-# use Ubunut Trusty repository on Utopic
-sed -i 's|utopic|trusty|g' /etc/apt/sources.list.d/ubuntu-lxc-ubuntu-lxd-stable-utopic.list
-
 sudo apt-get update
-sudo apt-get install -y lxd lxc lxcfs
+
+# install LXD
+sudo apt-get install -y lxd
+
+# initialize LXD
+sudo lxd init --auto
