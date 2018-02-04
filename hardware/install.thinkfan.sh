@@ -12,7 +12,7 @@ sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
 sudo sed -i 's|START=no|START=yes|' /etc/default/thinkfan
 sudo sed -i 's|DAEMON_ARGS="-q"|DAEMON_ARGS="-q -b 1 -s 15"|' /etc/default/thinkfan
 
-cat <<EOF | sudo tee -a /etc/thinkfan.conf
+cat <<EOF | sudo tee /etc/thinkfan.conf
 hwmon /sys/devices/virtual/hwmon/hwmon0/temp1_input
 (0,	0,	65)
 (1,	65,	70)
