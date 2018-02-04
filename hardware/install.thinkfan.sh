@@ -27,3 +27,6 @@ EOF
 if [ $(lsb_release -rs | tr -d ".") -ge 1504 ]; then
     sed -i '$i /etc/init.d/thinkfan restart' /etc/rc.local
 fi
+
+# restart thinkfan service
+sudo service thinkfan restart
