@@ -17,3 +17,6 @@ sudo bash /tmp/netbeans-linux.sh --silent
 
 # cleanup
 rm /tmp/netbeans-linux.sh
+
+# configure java jdk home
+echo netbeans_jdkhome="/usr/lib/jvm/default-java" | sudo tee -a /usr/local/netbeans-8.2/etc/netbeans.conf
