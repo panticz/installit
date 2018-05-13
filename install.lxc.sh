@@ -16,7 +16,7 @@ for FILE in $(find /etc/apt/sources.list.d/ -name "*lxc*.list"); do
 done
 
 apt-get update
-apt-get install -y lxc lxcfs
+apt-get install -y lxc lxcfs python-lxc
 
 if [ "$1" == "-b" ]; then
   # install required packages
