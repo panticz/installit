@@ -1,18 +1,16 @@
 #!/bin/bash
 
-URL=http://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+# add teamviewer repository key
+wget -qO - https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
 
-# install required applications
-sudo apt-get install -y wget libqt5qml5 libqt5quick5 libqt5webkit5
+# add teamviewer repository
+cat << EOF | sudo tee -a /etc/apt/sources.list.d/teamviewer.list
+deb http://linux.teamviewer.com/deb stable main
+deb http://linux.teamviewer.com/deb preview main
+EOF
 
-# download teamviewer
-wget -q ${URL} -O /tmp/teamviewer.deb
-
-# fix broken dependencies
-sudo apt install -y -f
+# update package list
+sudo apt-get update -qq
 
 # install teamviewer
-sudo apt install -y /tmp/teamviewer.deb
-
-# clean up
-rm /tmp/teamviewer.deb
+sudo apt-get install -y teamviewer
