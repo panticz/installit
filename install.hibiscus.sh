@@ -23,7 +23,7 @@ wget http://www.willuhn.de/products/hibiscus/releases/current/hibiscus.zip -P /t
 sudo unzip /tmp/hibiscus.zip -d /opt/jameica/plugins/
 
 # create start entry
-cat << EOF | sudo tee /usr/share/applications/Hibiscus.desktop
+cat << EOF | sudo tee /usr/share/applications/jameica.desktop
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
