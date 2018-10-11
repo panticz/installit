@@ -7,19 +7,19 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # install required packages
-apt-get install -y apt-transport-https ca-certificates software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 
 # install Docker repository key
-wget https://yum.dockerproject.org/gpg -qO- | apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 # add Docker repository
-add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-# disable APT proxy for Docker repository
-echo 'Acquire::HTTP::Proxy::apt.dockerproject.org "DIRECT";' > /etc/apt/apt.conf.d/99_dockerproject
+# OPTIONAL: disable APT proxy for Docker repository
+# echo 'Acquire::HTTP::Proxy::apt.dockerproject.org "DIRECT";' > /etc/apt/apt.conf.d/99_dockerproject
 
 # update package list
-apt-get update
+sudo apt-get update
 
 # install Docker
-apt-get -y install docker-engine
+sudo apt-get install docker-ce
