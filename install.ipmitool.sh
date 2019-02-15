@@ -1,7 +1,8 @@
 #!/bin/bash
 
-apt-get install -y ipmitool
+sudo apt-get install -y ipmitool
 
+# enable modules for local ipmi access
 cat <<EOF>> /etc/modules
 ipmi_devintf
 ipmi_msghandler
