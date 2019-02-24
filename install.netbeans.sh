@@ -1,22 +1,30 @@
 #!/bin/bash
 
-if [ "$1" == "-j" ]; then
-  # Java SE only
-  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
-else
-  # with all included programming languages
-  URL=http://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-linux.sh
-fi
+URL=https://www-us.apache.org/dist/incubator/netbeans/incubating-netbeans/incubating-10.0/incubating-netbeans-10.0-bin.zip
+
+# install required applications
+sudo apt -y install wget unzip
+
+# download netbeans package
+wget ${URL} -O /tmp/incubating-netbeans-bin.zip
+
+# unip netbeans
+sudo unzip -d /opt /tmp/incubating-netbeans-bin.zip
+
+# create netbeans starter
+cat <<EOF> /tmp/netbeans.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=NetBeans IDE
+Exec=/opt/netbeans/bin/netbeans
+Icon=/opt/netbeans/nb/netbeans.png
+Terminal=false
+Type=Application
+Categories=GNOME;Application;Development;
+EOF
+
+sudo mv /tmp/netbeans.desktop /usr/share/applications/netbeans.desktop
+sudo chmod +r /usr/share/applications/netbeans.desktop
 
 # install Java JDK
 wget -q https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk.sh -O - | bash -
-
-# download and install netbeans from homepage
-wget -q ${URL} -O /tmp/netbeans-linux.sh
-sudo bash /tmp/netbeans-linux.sh --silent
-
-# cleanup
-rm /tmp/netbeans-linux.sh
-
-# configure java jdk home
-echo netbeans_jdkhome="/usr/lib/jvm/default-java" | sudo tee -a /usr/local/netbeans-8.2/etc/netbeans.conf
