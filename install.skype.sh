@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# add partner repository
-sudo add-apt-repository -y "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+# add skype repository
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skype-stable.list
+
+# add repository key
+wget https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add -
 
 # update
 sudo apt-get update -qq
 
-# install
-sudo apt-get install -y skype
+# install requirements
+sudo apt install -y apt-transport-https
+
+# install skype
+sudo apt install -y skypeforlinux
