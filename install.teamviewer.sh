@@ -6,7 +6,6 @@ wget -qO - https://download.teamviewer.com/download/linux/signature/TeamViewer20
 # add teamviewer repository
 cat << EOF | sudo tee -a /etc/apt/sources.list.d/teamviewer.list
 deb http://linux.teamviewer.com/deb stable main
-deb http://linux.teamviewer.com/deb preview main
 EOF
 
 # update package list
