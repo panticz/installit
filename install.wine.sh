@@ -3,7 +3,7 @@
 # add repository
 sudo apt install -y apt-transport-https
 sudo dpkg --add-architecture i386
-wget -q https://dl.winehq.org/wine-builds/Release.key -O - | sudo apt-key add -
+wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
 sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 sudo apt-get update -qq
 
