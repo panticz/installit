@@ -1,6 +1,6 @@
 #!/bin/bash
 
-URL=http://registrationcenter.intel.com/irc_nas/3914/l_lpk_p_11.1.2.005.tgz
+URL=https://software.intel.com/sites/default/files/managed/e4/1c/l_mklb_p_2019.5.004.tgz
 
 # download
 wget ${URL} -O /tmp/l_lpk.tgz
