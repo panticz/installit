@@ -5,13 +5,13 @@ wget https://raw.githubusercontent.com/panticz/installit/master/install.java-jdk
 
 # download Jameica
 URL=http://www.willuhn.de/products/jameica/releases/current/jameica/jameica-linux64.zip
-wget ${URL} -P /tmp
+wget ${URL} -qP /tmp
 
 # install Jameica
 sudo unzip /tmp/jameica-linux*.zip -d /opt/
 
 # download Hibiscus
-wget http://www.willuhn.de/products/hibiscus/releases/current/hibiscus.zip -P /tmp
+wget http://www.willuhn.de/products/hibiscus/releases/current/hibiscus.zip -qP /tmp
 
 # install Hibiscus
 sudo unzip /tmp/hibiscus.zip -d /opt/jameica/plugins/
