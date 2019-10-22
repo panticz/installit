@@ -15,22 +15,10 @@ oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 EOF
 
 # ensure that add-apt-repository is installed
-. /etc/os-release
-if [ "${ID}" == "debian" ] && [ "${VERSION_ID}" == "7" ] ; then
-  # Debian Wheezy
-  apt-get install -y python-software-properties
-else
-  # Ubuntu and Debian Jessie
-  apt-get install -y software-properties-common
-fi
+apt-get install -y software-properties-common
 
 # add repository
 add-apt-repository -y ppa:webupd8team/java
-
-# fix distribution name on Debian
-for FILE in $(find /etc/apt/sources.list.d/ -name "*webupd8team*.list"); do
-  sed -i 's|wheezy|precise|g;s|jessie|trusty|g' ${FILE}
-done
 
 # update repository
 apt-get update -qq
